@@ -20,14 +20,13 @@ brew 'fontforge'
 brew 'terminal-notifier'
 
 brew 'aria2'
-brew 'curl'
 brew 'proxychains-ng'
 
 brew 'elixir'
-brew 'go'
 
-brew 'tree'
+brew 'curl'
 brew 'wget'
+brew 'tree'
 brew 'mtr'
 
 brew 'postgresql'
