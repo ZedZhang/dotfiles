@@ -1,0 +1,17 @@
+set editor-line-number = no
+# Stage a single line
+bind stage 1 stage-update-line
+# Revert
+bind main ! !git revert %(commit)
+# Create a new branch
+bind refs n !@git branch "%(prompt Enter branch name: )"
+# Stash the unstaged changes
+bind status S !?git stash save --keep-index %(prompt)
+# Push local changes to origin
+bind status P !git push origin
+# Push local changes to origin and create Push Request
+bind status Z !git push origin && git pull-request -a xifengzhu
+# Delete a file
+bind status D !@?rm %(file)
+# Amend last commit
+bind generic + !git commit --amend

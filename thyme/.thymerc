@@ -1,0 +1,47 @@
+set :timer, 25*60
+set :timer_break, 5*60
+set :warning, 5*60
+set :warning_color, "red,bold"
+set :break_color, 'blue'
+set :interval, 1
+set :tmux, true
+set :tmux_theme, "#[fg=mycolor,bg=mycolor]#[fg=%s]%s#[fg=mycolor,bg=mycolor]"
+
+option :t, :today, 'open today sheet' do
+  `vim -O ~/.thyme-today.md ~/.thyme-records.md < \`tty\` > \`tty\``
+end
+
+# adds `-m --seconds num` option, which allows on the fly timer
+option :m, 'seconds num', 'run with custom seconds' do |num|
+  set :timer, num.to_i * 60
+  run
+end
+
+before(:all) do
+  `tmux new-window -d -n "daily" vim -c "VimwikiMakeDiaryNote"`
+end
+
+before do
+  # `terminal-notifier -title '🍅' -message 'Pomodoro rocks!'`
+  if get("break")
+    `tmux set-option -g status-bg magenta`
+  else
+    `tmux set-option -g status-bg default`
+  end
+end
+
+after do |seconds_left|
+  if seconds_left == 0
+    if get("break")
+      `tmux last-window`
+    else
+      `tmux select-window -t daily`
+    end
+  end
+  # `terminal-notifier -title '🍅' -message "Pomodoro eaten!"`
+end
+
+after(:all) do
+  `tmux set-option -g status-bg default`
+  `tmux kill-window -t daily`
+end

@@ -1,0 +1,50 @@
+" ctrl-a to search a word in local project
+Bundle 'rking/ag.vim'
+Bundle 'dyng/ctrlsf.vim'
+
+" ]q => :cnext [q => :cprev work with fugitive.vim
+Bundle 'tpope/vim-unimpaired'
+
+" typescript
+Bundle 'leafgarland/typescript-vim'
+
+" vim-jsx
+Bundle 'mxw/vim-jsx'
+
+" vim-react-snippets
+Bundle 'justinj/vim-react-snippets'
+
+" gS for transition between multiline and single-line code
+Bundle 'AndrewRadev/splitjoin.vim'
+
+" vim wiki, kind of orgmode
+Bundle 'vimwiki/vimwiki'
+" A calendar application for Vim
+Plugin 'itchyny/calendar.vim'
+
+" autocomplete between tmux windows
+Bundle 'wellle/tmux-complete.vim'
+
+" for writing
+Bundle 'reedes/vim-pencil'
+" The fancy start screen for Vim
+" Bundle 'mhinz/vim-startify'
+
+" continuously updated session files
+Bundle 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+
+" gitk for Vim
+Bundle 'gregsexton/gitv'
+
+" search and display information from arbitrary sources,
+" like files, buffers, recently used files or registers
+Bundle 'Shougo/unite.vim'
+" Bundle 'Shougo/neomru.vim'
+" Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/neoyank.vim'
+
+" Delete all the buffers except the current/named buffer
+Bundle 'BufOnly.vim'
+
+Bundle 'digitaltoad/vim-jade'
